@@ -1,0 +1,28 @@
+{
+  "name": "unki",
+  "version": "1.0.0",
+  "description": "Unki",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/famiclone/unki.git"
+  },
+  "keywords": [
+    "cards"
+  ],
+  "author": "famiclone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/famiclone/unki/issues"
+  },
+  "homepage": "https://github.com/famiclone/unki#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-validator": "^6.7.0",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
