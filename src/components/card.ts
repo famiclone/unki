@@ -2,18 +2,24 @@ type Side = 0 | 1;
 
 class Card extends HTMLElement {
   _side: Side;
+  _cardContent: string[];
+  container: HTMLDivElement;
 
   constructor() {
     super();
 
     this._side = 0;
+    this._cardContent = [
+      this.getAttribute('term') || 't',
+      this.getAttribute('def') || 'd',
+    ];
+
+    console.log(this.getAttribute('term'));
 
     const shadow = this.attachShadow({ mode: 'open' });
-    const container = document.createElement('div');
     const style = document.createElement('style');
     style.textContent = `
       .card {
-        width: 100%;
         box-shadow: 0 0.3125rem 1.25rem 0 rgba(0, 0, 0, 0.16);
         padding: 0 30px;
         height: 360px;
@@ -54,23 +60,23 @@ class Card extends HTMLElement {
         }
       }
       
-      .cardTerm {
+      .card--side-0 {
         background-color: var(--primary-color);
       }
       
-      .cardTerm .content {
+      .card--side-0 .content {
         animation: flipOpacity 1s;
         color: white;
         font-size: 2rem;
         /* transition: 0.3s; */
       }
       
-      .cardDefinition {
+      .card--side-1 {
         font-weight: normal;
         transform: rotateY(180deg);
       }
       
-      .cardDefinition .content {
+      .card--side-1 .content {
         transform: rotateY(-180deg);
         animation: flipOpacity 1s;
         font-weight: normal;
@@ -98,6 +104,25 @@ class Card extends HTMLElement {
         width: 100%;
       }
     `;
+
+    this.container = document.createElement('div');
+    const wrapper = document.createElement('div');
+    const content = document.createElement('div');
+
+    this.container.classList.add('card');
+    this.container.classList.add(`card--side-${this.side}`);
+    wrapper.className = 'cardWrapper';
+    content.className = 'content';
+    content.textContent = this._cardContent[this._side];
+
+    wrapper.append(content);
+    this.container.append(wrapper);
+
+    this.addEventListener('click', (e) => {
+      this.changeSide();
+    });
+
+    shadow.append(style, this.container);
   }
 
   get side() {
@@ -116,11 +141,11 @@ class Card extends HTMLElement {
     }
 
     if (this.side === 1) {
-      this.classList.add('cardDefinition');
-      this.classList.remove('cardTerm');
+      this.container.classList.add('card--side-1');
+      this.container.classList.remove('card--side-0');
     } else {
-      this.classList.remove('cardDefinition');
-      this.classList.add('cardTerm');
+      this.container.classList.add('card--side-0');
+      this.container.classList.remove('card--side-1');
     }
   }
 }

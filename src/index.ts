@@ -140,3 +140,9 @@ class CardViewer {
 const viewer = new CardViewer(db.cards);
 
 document.querySelector('#app')!.append(viewer.element);
+
+const testCard = document.createElement('card-component');
+testCard.setAttribute('term', 'Term');
+testCard.setAttribute('def', 'Definition');
+
+document.body.append(testCard);
