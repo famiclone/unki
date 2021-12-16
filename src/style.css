@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,500;1,400&display=swap');
+@import 'colors.css';
+
+body {
+  color: var(--fg-color);
+  background: linear-gradient(90deg, var(--bg-color) 21px, transparent 1%)
+      center,
+    linear-gradient(var(--bg-color) 21px, transparent 1%) center,
+    var(--dot-color);
+  background-size: var(--dot-space) var(--dot-space);
+}
+
+pre {
+  font-family: 'Source Code Pro', monospace !important;
+}
+
+#app {
+  padding-top: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 520px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.card {
+  width: 100%;
+  box-shadow: 0 0.3125rem 1.25rem 0 rgba(0, 0, 0, 0.16);
+  padding: 0 30px;
+  height: 360px;
+  aspect-ratio: 7/5;
+  border-radius: 16px;
+  overflow: auto;
+  position: relative;
+  font-size: 21px;
+  font-weight: medium;
+  transform: rotateY(0deg);
+  transition: transform 0.3s, background-color 0.15s;
+  transform-style: preserve-3d;
+  background-color: var(--bg-color);
+}
+
+@media screen and (max-width: 500px) {
+  #app {
+    padding-top: 3rem;
+  }
+  .card {
+    width: 300px;
+    height: auto;
+    aspect-ratio: 5/7;
+  }
+}
+
+.content {
+  width: 100%;
+  font-weight: bold;
+}
+
+@keyframes flipOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cardTerm {
+  background-color: var(--primary-color);
+}
+
+.cardTerm .content {
+  animation: flipOpacity 1s;
+  color: white;
+  font-size: 2rem;
+  /* transition: 0.3s; */
+}
+
+.cardDefinition {
+  font-weight: normal;
+  transform: rotateY(180deg);
+}
+
+.cardDefinition .content {
+  transform: rotateY(-180deg);
+  animation: flipOpacity 1s;
+  font-weight: normal;
+  /* transition: 0.3s; */
+}
+
+.cardWrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.cardViewer {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}

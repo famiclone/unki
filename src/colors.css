@@ -1,0 +1,28 @@
+:root {
+  --bg-color: white;
+  --fg-color: #303030;
+  --dot-color: #a392d9;
+
+  --dot-size: 1px;
+  --dot-space: 22px;
+
+  --primary-color: tomato;
+  --gray-color: gray;
+
+  /* Themes */
+  /* Monokai */
+  --monokai-bg: #272822;
+  --monokai-fg: #f8f8f2;
+  --monokai-comment: #75715e;
+  --monokai-red: #f92672;
+  --monokai-orange: #fd971f;
+  --monokai-light-orange: #e69f66;
+  --monokai-yellow: #e6db74;
+  --monokai-green: #a6e22e;
+  --monokai-blue: #66d9ef;
+  --monokai-purple: #ae81ff;
+
+  /* JS */
+  --js-keyword-color: var(--monokai-blue);
+  --js-comment: var(var(--monokai-comment));
+}

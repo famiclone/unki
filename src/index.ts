@@ -1,4 +1,5 @@
 import { defineCustomElements } from './utils';
+import './style.css';
 
 defineCustomElements();
 
