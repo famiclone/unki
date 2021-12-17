@@ -5,6 +5,7 @@
 
   --dot-size: 1px;
   --dot-space: 22px;
+  --card-bg: #fdfefe;
 
   --primary-color: tomato;
   --gray-color: gray;
@@ -25,4 +26,12 @@
   /* JS */
   --js-keyword-color: var(--monokai-blue);
   --js-comment: var(var(--monokai-comment));
+}
+
+[data-theme='dark'] {
+  --secondary-color: #818cab;
+  --dot-color: #30363d;
+  --bg-color: #0d1117;
+  --fg-color: #e1e1ff;
+  --card-bg: #10171e;
 }

@@ -9,12 +9,15 @@ export default {
   cards: [
     {
       id: 1,
-      deckId: 1,
+      deck: {
+        id: 1,
+        name: 'Algorithms + Data structures',
+      },
       level: 0,
       content: [
         'Array',
-        `In programming, a list of data values, all of the same type, any element of which can be referenced by an expression consisting of the array name followed by an indexing expression. Arrays are part of the fundamentals of data structures, which, in turn, are a major fundamental of computer programming
-      <code-block lang="js">
+        `In <b>programming</b>, a list of data values, all of the same type, any element of which can be referenced by an expression consisting of the array name followed by an indexing expression. Arrays are part of the fundamentals of data structures, which, in turn, are a major fundamental of computer programming
+      <code-block lang='js'>
  const array = [1, 2, 3, 4, 5];
  let array2 = [];
       </code-block>
@@ -23,7 +26,10 @@ export default {
     },
     {
       id: 2,
-      deckId: 1,
+      deck: {
+        id: 1,
+        name: 'Algorithms + Data structures',
+      },
       level: 0,
       content: [
         'Algorithm',
@@ -32,7 +38,10 @@ export default {
     },
     {
       id: 3,
-      deckId: 1,
+      deck: {
+        id: 1,
+        name: 'Algorithms + Data structures',
+      },
       level: 0,
       content: [
         'Linked list',

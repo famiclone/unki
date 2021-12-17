@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,500;1,400&display=swap');
+@import 'colors.css';
+@import 'fonts.css';
+@import 'buttons.css';
+
+body {
+  color: var(--fg-color);
+  background: linear-gradient(90deg, var(--bg-color) 21px, transparent 1%)
+      center,
+    linear-gradient(var(--bg-color) 21px, transparent 1%) center,
+    var(--dot-color);
+  background-size: var(--dot-space) var(--dot-space);
+}
+
+#app {
+  padding-top: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 520px;
+  margin: 0 auto;
+  position: relative;
+}
