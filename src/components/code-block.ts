@@ -44,8 +44,6 @@ class CodeBlock extends HTMLElement {
 
     const style = document.createElement('style');
     style.textContent = `
-      @import 'colors.css';
-
       .code-block {
         margin: 0.5rem 0;
       }
@@ -56,8 +54,8 @@ class CodeBlock extends HTMLElement {
       }
 
       .code-block--wrapper {
-        background-color: var(--fg-color);
-        color: var(--bg-color);
+        background-color: var(--monokai-bg);
+        color: var(--monokai-fg);
         border-radius: 0.5rem;
         font-size: 16px;
         margin: 0;
