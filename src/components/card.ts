@@ -124,7 +124,7 @@ class Card extends HTMLElement {
         <div class="wrapper">
           <main class="main"></main>
           <footer>${this.data.deck.name}</footer>
-        </div> 
+        </div>
       </div>
     `;
     shadow.append(style, template.cloneNode(true));

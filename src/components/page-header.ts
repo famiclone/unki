@@ -18,7 +18,7 @@ template.innerHTML = `
   <header class="container">
     <div class="wrapper">
       <button class="button" id="themeBtn">
-        Theme 
+        Theme
       </button>
     </div>
   </header>
