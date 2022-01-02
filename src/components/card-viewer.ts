@@ -26,6 +26,10 @@ style.textContent = `
     width: 100%;
     height: 100%;
   }
+
+  .controls {
+    display: flex;
+  }
 `;
 class CardViewer extends HTMLElement {
   _cards: CardData[];
@@ -38,9 +42,18 @@ class CardViewer extends HTMLElement {
   }
 
   connectedCallback() {
+    const position = {
+      startX: 0,
+      startY: 0,
+      endX: 0,
+      endY: 0,
+      isMoving: false,
+    };
     const shadow = this.attachShadow({ mode: 'open' });
 
-    shadow.append(style, template.cloneNode(true));
+    const container = template.cloneNode(true) as Element;
+
+    shadow.append(style, container);
     const buttonPrev = this.shadowRoot?.querySelector('#buttonPrev')!;
     const buttonNext = this.shadowRoot?.querySelector('#buttonNext')!;
 
@@ -53,6 +66,29 @@ class CardViewer extends HTMLElement {
 
     buttonNext.addEventListener('click', () => {
       this.currentIndex += 1;
+    });
+
+    container.addEventListener('mousedown', (e: any) => {
+      position.startX = e.offsetX;
+      position.isMoving = true;
+    });
+
+    container.addEventListener('mousedown', (e: any) => {
+      position.endX = e.offsetX;
+      container.classList[position.isMoving ? 'add' : 'remove']('move');
+    });
+
+    container.addEventListener('mouseup', (e: any) => {
+      position.isMoving = false;
+
+      const diff = position.endX - position.startX;
+
+      if (diff > 100) {
+        container.classList.add('moveRight');
+      }
+
+      position.endX = 0;
+      container.classList.remove('move');
     });
   }
 
