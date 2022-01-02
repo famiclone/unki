@@ -16,6 +16,11 @@ style.textContent = `
     transition: transform 0.3s, background-color 0.15s;
     transform-style: preserve-3d;
     background-color: var(--card-bg);
+    cursor: default;
+  }
+
+  .move {
+    cursor: grabbing !important;
   }
 
   .hide {
@@ -93,6 +98,49 @@ style.textContent = `
     opacity: 0.5;
     text-transform: uppercase;
   }
+
+  @keyframes moveLeft {
+    0% {
+    }
+     
+     25% {
+       /* opacity: 0; */
+       transform: translateX(100px)
+     }
+     27% {
+       opacity: 0;
+       transform: translateX(-100px)
+     }
+    100% {
+      opacity: 1;
+      transform: translateX(0px)
+    }
+ }
+ @keyframes moveRight {
+    0% {
+    }
+     
+     25% {
+       /* opacity: 0; */
+       transform: translateX(-100px)
+     }
+     27% {
+       opacity: 0;
+       transform: translateX(100px)
+     }
+    100% {
+      opacity: 1;
+      transform: translateX(0px)
+    }
+ }
+ 
+  .container.moveLeft {
+   animation: moveLeft 1s;
+ }
+ 
+  .container.moveRight {
+   animation: moveRight 1s;
+ }
 `;
 
 class Card extends HTMLElement {
@@ -132,7 +180,7 @@ class Card extends HTMLElement {
     const container = this.shadowRoot?.querySelector('.container');
 
     if (container) {
-      container.addEventListener('click', (e) => {
+      container.addEventListener('dblclick', (e) => {
         this.changeSide();
       });
     }
