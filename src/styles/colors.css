@@ -23,6 +23,8 @@
   --monokai-blue: #66d9ef;
   --monokai-purple: #ae81ff;
 
+  --number-color: pink;
+
   /* JS */
   --js-keyword-color: var(--monokai-blue);
   --js-comment: var(var(--monokai-comment));

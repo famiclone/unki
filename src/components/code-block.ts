@@ -27,6 +27,7 @@ const dict: Dict = {
       'yield',
       'const',
       'let',
+      'class',
     ],
   },
 
@@ -66,17 +67,25 @@ class CodeBlock extends HTMLElement {
         margin: 0;
       }
 
-      .line--even {
+      .lineEven {
         background-color: rgba(255, 255, 255, 0.05);
       }
 
-      .line-number {
+      .lineNumber {
         color: var(--gray-color);
         font-size: 12px;
       }
 
       .js-keyword {
         color: var(--js-keyword-color);
+      }
+
+      .js-number {
+        color: var(--number-color);
+      }
+      
+      .js-bracket {
+        color: var(--gray-color);
       }
     `;
 
@@ -85,20 +94,18 @@ class CodeBlock extends HTMLElement {
     const content = this.textContent
       ?.split('\n')
       .filter((c) => c !== '')
-      .map((line: string, i: number) => {
-        return `<pre class="line ${
-          i % 2 === 0 && 'line--even'
-        }"><span class="line-number">${++i}</span>${line
-          .split(' ')
-          .map((word: string) => {
-            const lang: Language =
-              (this.getAttribute('lang') as Language) || 'js';
-            if (dict[lang].keywords.includes(word)) {
-              return `<span class="js-keyword">${word}</span>`;
-            }
-            return `<span>${word}</span>`;
-          })
-          .join(' ')}</pre>`;
+      .map((line, i) => {
+        return `<pre class="line ${i % 2 === 0 ? 'lineEven' : ''}">
+            <span class="lineNumber">${++i}</span> 
+            ${line
+              // keywords
+              ?.replace(
+                /class |const |let |super/gi,
+                '<span class="js-keyword">$&</span>',
+              )
+              // numbers
+              ?.replace(/\d/gi, '<span class="js-number">$&</span>')}
+          </pre>`;
       })
       .join('');
 

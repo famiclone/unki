@@ -7,7 +7,33 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="app"></div>
+    <!-- prettier-ignore -->
+    <code-block>
+      class CardViewer extends HTMLElement {
+        _cards: CardData[];
+        _currentIndex: number;
+        
+        constructor() {
+          super();
+          this._cards = [];
+          this._currentIndex = 0;
+        }
+        
+        connectedCallback() {
+          const position = {
+            startX: 0,
+            startY: 0,
+            endX: 0,
+            endY: 0,
+            isMoving: false,
+          };
+
+          const shadow = this.attachShadow({ mode:'open' });
+        }
+      }
+      </code-block
+    >
+    <!-- <div id="app"></div> -->
     <script src="./bundle.js"></script>
   </body>
 </html>
