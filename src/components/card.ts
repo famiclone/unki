@@ -1,3 +1,4 @@
+import { Component } from '../component';
 import { CardData, Side } from '../types';
 
 const style = document.createElement('style');
@@ -143,7 +144,7 @@ style.textContent = `
  }
 `;
 
-class Card extends HTMLElement {
+class Card extends Component {
   _side: Side;
   _data: CardData;
 

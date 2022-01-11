@@ -1,3 +1,5 @@
+import { Component } from '../component';
+
 const style = document.createElement('style');
 style.textContent = `
   .container {
@@ -24,7 +26,7 @@ template.innerHTML = `
   </header>
 `;
 
-class PageHeader extends HTMLElement {
+class PageHeader extends Component {
   constructor() {
     super();
   }

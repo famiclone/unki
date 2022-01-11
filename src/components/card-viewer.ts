@@ -1,3 +1,4 @@
+import { Component } from '../component';
 import db from '../db';
 import { CardData, DeckType } from '../types';
 import Card from './card';
@@ -31,7 +32,7 @@ style.textContent = `
     display: flex;
   }
 `;
-class CardViewer extends HTMLElement {
+class CardViewer extends Component {
   _cards: CardData[];
   _currentIndex: number;
 
