@@ -1,3 +1,5 @@
+import { Component } from '../component';
+
 type Language = 'js' | 'html';
 
 type Dict = {
@@ -36,7 +38,7 @@ const dict: Dict = {
   },
 };
 
-class CodeBlock extends HTMLElement {
+class CodeBlock extends Component {
   constructor() {
     super();
 
@@ -65,6 +67,8 @@ class CodeBlock extends HTMLElement {
       .line {
         padding-left: 0.5rem;
         margin: 0;
+        display: flex;
+        align-items: center;
       }
 
       .lineEven {
@@ -74,6 +78,7 @@ class CodeBlock extends HTMLElement {
       .lineNumber {
         color: var(--gray-color);
         font-size: 12px;
+        margin-right: 0.5rem;
       }
 
       .js-keyword {
