@@ -1,5 +1,5 @@
 # unki
 
-A simple flashcards PWA.
+A simple flashcards app.
 
 ![](./assets/demo.gif)
