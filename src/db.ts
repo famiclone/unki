@@ -4,6 +4,10 @@ export default {
       id: 1,
       name: 'Algorithms + Data structures',
     },
+    {
+      id: 2,
+      name: 'System design',
+    },
   ],
 
   cards: [
@@ -11,16 +15,12 @@ export default {
       id: 1,
       deck: {
         id: 1,
-        name: 'Algorithms + Data structures',
+        name: 'System design',
       },
       level: 0,
       content: [
-        'Array',
-        `In <b>programming</b>, a list of data values, all of the same type, any element of which can be referenced by an expression consisting of the array name followed by an indexing expression. Arrays are part of the fundamentals of data structures, which, in turn, are a major fundamental of computer programming
-      <code-block lang='js'>
- const array = [1, 2, 3, 4, 5];
- let array2 = [];
-      </code-block>
+        'Performance vs scalability',
+        `A service is scalable if it results in increased performance in a manner proportional to resources added. Generally, increasing performance means serving more units of work, but it can also be to handle larger units of work, such as when datasets grow.1
       `,
       ],
     },
@@ -28,24 +28,30 @@ export default {
       id: 2,
       deck: {
         id: 1,
-        name: 'Algorithms + Data structures',
+        name: 'System design',
       },
       level: 0,
       content: [
-        'Algorithm',
-        'A computable set of steps to achieve a desired result.',
+        'Latency vs throughput',
+        `Latency is the time to perform some action or to produce some result.
+
+        Throughput is the number of such actions or results per unit of time.
+        
+        Generally, you should aim for maximal throughput with acceptable latency.
+      `,
       ],
     },
     {
       id: 3,
       deck: {
         id: 1,
-        name: 'Algorithms + Data structures',
+        name: 'System design',
       },
       level: 0,
       content: [
-        'Linked list',
-        'A data structure in which a list of nodes or elements of a data structure connected by pointers. A singly linked list has one pointer in each node pointing to the next node in the list; a doubly linked list has two pointers in each node pointing to the next and previous nodes. In a circular list, the first and last nodes of the list are linked together.',
+        'Consistency patterns',
+        `With multiple copies of the same data, we are faced with options on how to synchronize them so clients have a consistent view of the data. Recall the definition of consistency from the CAP theorem - Every read receives the most recent write or an error.
+      `,
       ],
     },
   ],
