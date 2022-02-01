@@ -6,7 +6,7 @@ style.textContent = `
   .container {
     box-shadow: 0 0.3125rem 1.25rem 0 rgba(0, 0, 0, 0.16);
     padding: 0 30px;
-    height: 360px;
+    width: 500px;
     aspect-ratio: 7/5;
     border-radius: 16px;
     overflow: auto;
@@ -42,7 +42,9 @@ style.textContent = `
   
   .content {
     width: 100%;
+    height: 100%;
     font-weight: bold;
+    overflow: scroll;
   }
   
   @keyframes flipOpacity {
@@ -147,10 +149,12 @@ style.textContent = `
 class Card extends Component {
   _side: Side;
   _data: CardData;
+  cardHeight: number;
 
   constructor() {
     super();
     this._side = 0;
+    this.cardHeight = 0;
     this._data = {
       id: 0,
       deck: {
@@ -164,8 +168,6 @@ class Card extends Component {
 
   connectedCallback() {
     const shadow = this.attachShadow({ mode: 'open' });
-
-    console.log(this.data);
 
     const template = document.createElement('div');
     template.innerHTML = `
@@ -181,12 +183,14 @@ class Card extends Component {
     const container = this.shadowRoot?.querySelector('.container');
 
     if (container) {
-      container.addEventListener('dblclick', (e) => {
+      container.addEventListener('click', (e) => {
         this.changeSide();
       });
     }
 
     this.changeContent(this.data.content[this.side], `${this.data.deck.name}`);
+
+    console.log(this.cardHeight);
   }
 
   get side() {

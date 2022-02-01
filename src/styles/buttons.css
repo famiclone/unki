@@ -1,5 +1,7 @@
+@import url('./colors.css');
+
 .button {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   border: none;
-  background-color: greenyellow;
+  background-color: var(--primary-color);
 }

@@ -3,5 +3,9 @@ export class Component extends HTMLElement {
     super();
   }
 
-  onClick() {}
+  connectedCallback() {}
+
+  onClick(func: () => void) {
+    func();
+  }
 }

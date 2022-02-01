@@ -2,6 +2,7 @@ import { Component } from '../component';
 
 const style = document.createElement('style');
 style.textContent = `
+  @import url('./styles/main.css');
   .container {
     position: fixed;
     top: 0;
@@ -12,6 +13,36 @@ style.textContent = `
 
   .wrapper {
     display: flex;
+  }
+
+  .button {
+    position: relative;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: #e6ebf1;
+    border: 1px solid rgba(27,31,35,0.2);
+    border-radius: 0.25em;
+    -webkit-appearance: none;
+  }
+
+  .button:hover {
+    background-color: #e6ebf1;
+    background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
+    background-position: -.5em;
+    border-color: rgba(27,31,35,0.35);
+  }
+
+  .button:active {
+    background-color: #e9ecef;
+    background-image: none;
+    border-color: rgba(27,31,35,0.35);
+    box-shadow: inset 0 0.15em 0.3em rgba(27,31,35,0.15);
   }
 `;
 
