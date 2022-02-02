@@ -3,10 +3,20 @@ import { CardData, Side } from '../types';
 
 const style = document.createElement('style');
 style.textContent = `
+  .card {
+    transform: translateY(0);
+    transition: 0.3s ease-out;
+  }
+
+  .card:hover {
+    transform: translateY(-0.25rem);
+  }
+
   .container {
-    box-shadow: 0 0.3125rem 1.25rem 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 0.3125rem 1.25rem -12px rgba(0, 0, 0, 0.16);
     padding: 0 30px;
-    width: 500px;
+    border: 1px solid var(--gray-color);
+    width: 540px;
     aspect-ratio: 7/5;
     border-radius: 16px;
     overflow: auto;
@@ -18,6 +28,11 @@ style.textContent = `
     transform-style: preserve-3d;
     background-color: var(--card-bg);
     cursor: default;
+    box-sizing: border-box;
+  }
+
+  .container.side-1 {
+    // height: 100%;
   }
 
   .move {
@@ -58,6 +73,7 @@ style.textContent = `
   
   .side-0 {
     background-color: var(--primary-color);
+    overflow: hidden;
   }
   
   .side-0 .content {
@@ -65,11 +81,14 @@ style.textContent = `
     color: white;
     font-size: 2rem;
     transition: 0.3s;
+    overflow: scroll-y;
   }
   
   .side-1 {
     font-weight: normal;
     transform: rotateY(180deg);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
   
   .side-1 .content {
@@ -84,8 +103,11 @@ style.textContent = `
     display: grid;
     align-items: center;
     flex-flow: column;
-    grid-template-rows: repeat(7, 1fr);
     gap: 1rem;
+  }
+
+  .side-1 .wrapper {
+    align-items: start;
   }
 
   .main {
@@ -171,10 +193,12 @@ class Card extends Component {
 
     const template = document.createElement('div');
     template.innerHTML = `
-      <div class="container side-${this.side}">
-        <div class="wrapper">
-          <main class="main"></main>
-          <footer>${this.data.deck.name}</footer>
+      <div class="card">
+        <div class="container side-${this.side}">
+          <div class="wrapper">
+            <main class="main"></main>
+            <footer>${this.data.deck.name}</footer>
+          </div>
         </div>
       </div>
     `;
