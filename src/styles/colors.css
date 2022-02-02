@@ -7,8 +7,9 @@
   --dot-space: 22px;
   --card-bg: #fdfefe;
 
-  --primary-color: tomato;
-  --gray-color: gray;
+  --primary-color: #1faf7f;
+  --gray-color: #ececec;
+  --light-gray-color: #ececec;
 
   /* Themes */
   /* Monokai */
@@ -36,4 +37,5 @@
   --bg-color: #0d1117;
   --fg-color: #e1e1ff;
   --card-bg: #10171e;
+  --gray-color: #383838;
 }
